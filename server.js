@@ -1,8 +1,9 @@
 require('dotenv').config();
 
-const { log } = require('console');
+
 const express = require('express');
 const mongoose = require('mongoose');
+// const Index = require('./views/Index.jsx')
 
 const app = express();
 
@@ -30,7 +31,7 @@ app.get('/',(req,res) => {
 
 app.get('/pokemon', (req, res) => {
     // console.log(pokemon)
-    res.send(pokemon)
+    res.render('Index', {pokemon: pokemon})
 })
 
 
