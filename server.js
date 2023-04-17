@@ -31,9 +31,15 @@ app.get('/',(req,res) => {
 
 //! Show Route
 app.get('/pokemon/:id', (req, res) => {
-    console.log(req.params.id);
-    res.send(req.params.id);
+    const {name} = req.params;
+    res.render('Show', {pokemon: pokemon[req.params.id]});
 })
+
+// app.get("/pokemon/:id", (req, res) => {
+//     pokemon.findById(req.params.id, (error, foundPoke) => {
+//       res.render("Show", { pokemon: foundPoke });
+//     });
+//   });
 
 //! Index Route
 app.get('/pokemon', (req, res) => {

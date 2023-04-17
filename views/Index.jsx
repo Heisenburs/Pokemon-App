@@ -21,7 +21,7 @@ function Index(props) {
                 pokemon.map((pokemon, i) => {
                     return (
                         <li key={pokemon.name}>
-                            <a href ={`/pokemon/${pokemon.name}`} > {pokemon.name} </a>
+                            <a href ={`/pokemon/${i}`} > {pokemon.name} </a>
                             <br/>
                             <img src={pokemon.img}/>
                         </li>
