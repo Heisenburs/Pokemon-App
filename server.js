@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 //TODO: Data
-// const pokemon = require('./models/pokemon')
+const pokemon = require('./models/pokemon')
 
 //* Configuration
 app.set('view engine', 'jsx');
@@ -28,7 +28,10 @@ app.get('/',(req,res) => {
     res.send(`Welcome to the Pokemon App!`)
 })
 
-
+app.get('/pokemon', (req, res) => {
+    // console.log(pokemon)
+    res.send(pokemon)
+})
 
 
 //* Listening
