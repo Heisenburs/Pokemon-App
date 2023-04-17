@@ -7,11 +7,30 @@ const heading = {
     textDecoration: 'underline'
 }
 
-function Index() {
+function Index(props) {
+    const {pokemon} = props;
+    console.log(pokemon);
   return (
+    <>
     <div style={heading}>
     <h1> See All the Pokemon!</h1>
     </div>
+    <div>
+        <ul>
+            {
+                pokemon.map((pokemon, i) => {
+                    return (
+                        <li key={pokemon.name}>
+                            {pokemon.name} <br/>
+                            <img src={pokemon.img}/>
+                        </li>
+                    )
+                })
+            }
+        </ul>
+    </div>
+    </>
+    
   )
 }
 
