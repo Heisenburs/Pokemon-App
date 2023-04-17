@@ -9,7 +9,7 @@ const heading = {
 
 function Index(props) {
     const {pokemon} = props;
-    console.log(pokemon);
+    // console.log(pokemon);
   return (
     <>
     <div style={heading}>
@@ -21,7 +21,8 @@ function Index(props) {
                 pokemon.map((pokemon, i) => {
                     return (
                         <li key={pokemon.name}>
-                            {pokemon.name} <br/>
+                            <a href ={`/pokemon/${pokemon.name}`} > {pokemon.name} </a>
+                            <br/>
                             <img src={pokemon.img}/>
                         </li>
                     )
