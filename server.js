@@ -2,8 +2,10 @@ require('dotenv').config();
 
 
 const express = require('express');
-const mongoose = require('mongoose');
+const connectToDb = require('./config/database')
+// const mongoose = require('mongoose');
 // const Index = require('./views/Index.jsx')
+// const PokeDeck = require('./models/PokeDeck')
 
 const app = express();
 
@@ -45,19 +47,16 @@ app.get('/pokemon/:id', (req, res) => {
 app.get('/pokemon', (req, res) => {
     // console.log(pokemon)
     res.render('Index', {pokemon: pokemon})
+//    PokeDeck.find({}, (error, allPokemon) => {
+//     res.render('pokemon/Index', {pokemon: allPokemon})
+//    })
 })
 
 
 //* Listening
 app.listen(8000, () => {
     console.log(`Port 8000: Listening...`);
-    //? connecting to mongoDB, can be done in other folder
-    mongoose.set('strictQuery', true)
-    mongoose.connect(process.env.MONGO_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
-    mongoose.connection.once('open', () => {
-        console.log('Connected to MongoDB!');
-    })
+    //? connecting to mongoDB, done in other folder
+    connectToDb()
+   
 })
